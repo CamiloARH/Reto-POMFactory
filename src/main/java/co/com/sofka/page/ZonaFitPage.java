@@ -40,7 +40,7 @@ public class ZonaFitPage extends CommonActionOnPages {
 
     @CacheLookup
     @FindBy(css = "a[class='checkout-button button alt wc-forward']")
-    WebElement CheckoutLocator;
+    WebElement checkoutLocator;
 
     @CacheLookup
     @FindBy(css = "input[data-brand='768']")
@@ -135,7 +135,6 @@ public class ZonaFitPage extends CommonActionOnPages {
     public void productosEnOutlet(){
         //ingreso Ofertas
         click(outletBottonLocator);
-//        click(outletBottonLocator);
     }
 
     public void carroDeComprasScenario2(){
@@ -150,7 +149,7 @@ public class ZonaFitPage extends CommonActionOnPages {
 
         //Proceed Checkout
 
-        click(CheckoutLocator);
+        click(checkoutLocator);
     }
 
     //General Scenario
