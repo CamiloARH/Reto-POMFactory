@@ -2,17 +2,20 @@ package co.com.sofka.stepdefinition;
 
 import co.com.sofka.model.ZonaFitModel;
 import co.com.sofka.page.ZonaFitPage;
+import co.com.sofka.runner.ZonaFitTestCucumber;
 import co.com.sofka.setup.WebUI;
 import co.com.sofka.util.City;
 import co.com.sofka.util.State;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 
 public class ZonaFitTestStepdefinition extends WebUI {
 
     private ZonaFitModel cliente;
+    private static final Logger LOGGER = Logger.getLogger(ZonaFitTestCucumber.class);
 
 
     //Scenario 1
@@ -21,8 +24,11 @@ public class ZonaFitTestStepdefinition extends WebUI {
         try {
             generalSetup();
             generateClient();
+            LOGGER.info("Se organiza la pagina principal y el cliente");
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el Give");
+            quitDrive();
         }
     }
 
@@ -33,6 +39,8 @@ public class ZonaFitTestStepdefinition extends WebUI {
             zonaFitPage.productosEnOferta();
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el primer when");
+            quitDrive();
         }
     }
 
@@ -43,6 +51,8 @@ public class ZonaFitTestStepdefinition extends WebUI {
             zonaFitPage.carroDeCompras();
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el segundo when");
+            quitDrive();
         }
     }
 
@@ -53,6 +63,8 @@ public class ZonaFitTestStepdefinition extends WebUI {
             zonaFitPage.campoDeCompra();
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el tercer when");
+            quitDrive();
         }
     }
 
@@ -60,11 +72,13 @@ public class ZonaFitTestStepdefinition extends WebUI {
     public void elClieteDeberaVerUnMensajeDeConfirmacion() {
         try {
             ZonaFitPage zonaFitPage = new ZonaFitPage(cliente, super.driver);
-
             Assertions.assertEquals("CONVENIO RECAUDO ZONA FIT – BALOTO", zonaFitPage.checkPayment());
+            LOGGER.info("Se comprueba la compra");
             quitDrive();
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el then");
+            quitDrive();
         }
     }
 
@@ -104,6 +118,8 @@ public class ZonaFitTestStepdefinition extends WebUI {
 
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el segundo when");
+            quitDrive();
         }
     }
     @Then("el cliete debera ve un mensaje de confirmacion")
@@ -113,8 +129,11 @@ public class ZonaFitTestStepdefinition extends WebUI {
 
             Assertions.assertEquals("CONVENIO RECAUDO ZONA FIT – BALOTO", zonaFitPage.checkPayment());
             quitDrive();
+            LOGGER.info("Se comprueba la compra");
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el then");
+            quitDrive();
         }
     }
 

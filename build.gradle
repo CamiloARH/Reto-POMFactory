@@ -24,13 +24,14 @@ dependencies {
     implementation group: 'io.cucumber', name: 'cucumber-junit', version: '6.11.0'
 
 }
-//java {
-//    sourceCompatibility = JavaVersion.VERSION_11
-//    targetCompatibility = JavaVersion.VERSION_11
-//}
+
 
 test {
     useJUnitPlatform()
 }
 
+//java {
+//    sourceCompatibility = JavaVersion.VERSION_11
+//    targetCompatibility = JavaVersion.VERSION_11
+//}
 gradle.startParameter.continueOnFailure = true
