@@ -112,6 +112,7 @@ public class ZonaFitPage extends CommonActionOnPages {
 
         //Filtrar marca
         click(filtroMarcarLocator);
+        scrollDown();
     }
 
     public void carroDeCompras(){

@@ -9,8 +9,7 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         features = {"src/test/resources/features/zona_fit_cucumber.feature"},
         glue = {"co.com.sofka.stepdefinition"},
-        publish = true,
-        tags = ""
+        publish = true
 )
 public class ZonaFitTestCucumber {
 }
